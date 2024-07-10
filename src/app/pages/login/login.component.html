@@ -1,0 +1,33 @@
+<div class="container py-5">
+  <div class="w-75 m-auto">
+    <form [formGroup]="logInForm"  (ngSubmit)="logIn(logInForm)">
+      <h2 class="mb-2">Login Now :</h2>
+      <p class="alert alert-danger text-center" *ngIf="apiErrorMassage">{{apiErrorMassage}}</p>
+      <div class="form-group mb-2">
+        <label class="mb-2" for="Email">Email :</label>
+        <input formControlName="email"   type="email" class="form-control" id="Email">
+        <div *ngIf="logInForm.get('email')?.errors && logInForm.get('email')?.touched"  class="text-danger">
+          <p *ngIf="logInForm.get('email')?.getError('required')"  class="m-0">Requierd</p>
+          <p *ngIf="logInForm.get('email')?.getError('email')" class="m-0">Email not valid</p>
+        </div>
+      </div>
+      <div class="form-group mb-2">
+        <label class="mb-2" for="Password">Password :</label>
+        <input formControlName="password"  type="password" class="form-control" id="Password">
+        <div *ngIf="logInForm.get('password')?.errors && logInForm.get('password')?.touched"  class="text-danger">
+          <p *ngIf="logInForm.get('password')?.getError('required')"  class="m-0">Requierd</p>
+          <p *ngIf="logInForm.get('password')?.getError('pattern')" class="m-0">Password not valid</p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end align-items-center mt-2">
+        <a routerLink="/forget-password" class="text-primary mx-3">Forget password ?</a>
+        <button class="bg-main btn text-white" [disabled]="logInForm.invalid || isLoading">
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></span>
+
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

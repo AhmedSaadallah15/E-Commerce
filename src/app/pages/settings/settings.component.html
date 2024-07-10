@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="w-75 mx-auto py-5">
+    <div class="row">
+      <div class="col-md-4 border-end border-4">
+        <button class="btn ">
+          <a routerLink="settings/userData">
+            <span class="text-main"><i class="fa-regular fa-user"></i></span>
+            Account Settings
+          </a>
+          </button>
+        <button class="btn ">
+          <a routerLink="settings/privacy" >
+            <span class="text-main"><i class="fa-solid fa-lock"></i></span>
+            privacy Settings
+          </a>
+        </button>
+
+      </div>
+      <div class="col-md-8">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

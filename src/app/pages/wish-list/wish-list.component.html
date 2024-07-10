@@ -1,0 +1,34 @@
+<div class="container py-4">
+  <h2 class="py-4 bg-main-light px-4">WishList :</h2>
+  <div class="row">
+    <div *ngIf="allProducts?.length === 0" class="fs-2 mx-auto bg-main-light w-50 text-center">
+      <p> Wishlist is empty <span class="text-main"><i class="fa-solid fa-exclamation"></i></span></p>
+
+    </div>
+    <div class="col-md-2" *ngFor="let product of allProducts">
+      <div class="product p-2">
+        <a [routerLink]="['/product',product._id]">
+        <img [src]="product.imageCover" [alt]="product.title" class="w-100">
+        <p class="pt-2 text-main">{{product.category.name}} </p>
+        <p>{{product.title.split(' ').slice(0,2).join(' ')}}</p>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="fw-bold">{{product.price}} EGP</span>
+          <div class="">
+            <i class="fa-solid fa-star rating-color"></i>
+            <span class="fw-bold">{{product.ratingsAverage}}</span>
+          </div>
+        </div>
+      </a>
+      <div class="pt-2 d-flex justify-content-between">
+        <span class="text-muted wish">Remove from wishlist</span>
+        <i (click)="removeFromWishlist(product._id)" class="fa-solid fa-heart  wishI"></i>
+      </div>
+        <button (click)="addToCart(product._id)" class="btn bg-main my-3  w-100 text-white fw-bold">
+          <i class="fa-solid fa-cart-plus"></i>
+           Add
+          </button>
+      </div>
+
+    </div>
+

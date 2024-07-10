@@ -1,0 +1,22 @@
+
+
+
+.activeLink
+{
+  color: white;
+  background-color: var(--main-color);
+  border-radius: 5px;
+}
+.activeLink:hover{
+  color: white;
+}
+
+.num{
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 12px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

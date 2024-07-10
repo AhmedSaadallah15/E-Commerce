@@ -1,0 +1,40 @@
+<form [formGroup]="changeUserData"  (ngSubmit)="handelForm(changeUserData)">
+
+  <p class="alert alert-danger text-center" *ngIf="apiErrorMassage">{{apiErrorMassage}}</p>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="Name" placeholder="Name" formControlName="name">
+    <label for="Name">Name</label>
+    <div *ngIf="changeUserData.get('name')?.errors && changeUserData.get('name')?.touched"  class="text-danger">
+      <p *ngIf="changeUserData.get('name')?.getError('required')"  class="m-0">Requierd</p>
+      <p *ngIf="changeUserData.get('name')?.getError('minLength')"  class="m-0">Requierd</p>
+      <p *ngIf="changeUserData.get('name')?.getError('maxLength')"  class="m-0">Requierd</p>
+
+    </div>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+    <label for="email">Email</label>
+    <div *ngIf="changeUserData.get('email')?.errors && changeUserData.get('email')?.touched"  class="text-danger">
+      <p *ngIf="changeUserData.get('email')?.getError('required')"  class="m-0">Requierd</p>
+      <p *ngIf="changeUserData.get('email')?.getError('email')"  class="m-0">Requierd</p>
+
+    </div>
+  </div>
+
+  <div class="form-floating">
+    <input type="tel" class="form-control" id="Phone" placeholder="Phone" formControlName="phone">
+    <label for="Phone">Phone</label>
+    <div *ngIf="changeUserData.get('phone')?.errors && changeUserData.get('phone')?.touched"  class="text-danger">
+      <p *ngIf="changeUserData.get('phone')?.getError('required')"  class="m-0">Requierd</p>
+      <p *ngIf="changeUserData.get('phone')?.getError('pattern')"  class="m-0">Requierd</p>
+
+    </div>
+  </div>
+
+  <button class="btn bg-main text-white my-3 ms-auto d-block" [disabled]="changeUserData.invalid">
+    Update
+  </button>
+
+</form>

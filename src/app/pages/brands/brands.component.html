@@ -1,0 +1,17 @@
+
+  <div class="container py-4">
+    <div class="row gy-5">
+
+    <div class="col-md-3" *ngFor="let brands of allBrands" >
+      <a [routerLink]="['/brand',brands._id]">
+      <div class="category">
+        <img [src]="brands.image" [alt]="brands.name" class="w-100">
+        <h1 class="fs-4 text-center text-main fw-bold my-2">{{brands.name}}</h1>
+      </div>
+    </a>
+    </div>
+
+    </div>
+  </div>
+
+

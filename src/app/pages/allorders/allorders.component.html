@@ -1,0 +1,48 @@
+
+<div class="container py-5">
+<div class="w-75 mx-auto">
+<h1 class="mx-3 my-3"> All Orders :</h1>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item" *ngFor="let order of allOrders ,let i = index">
+      <h2 class="accordion-header" [id]="'heading'+i">
+        <button class="accordion-button " type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+i" aria-expanded="true" [attr.aria-controls]="'collapse' + i">
+        <p class="mx-5">{{order.paymentMethodType|uppercase}}</p>
+        <p>Order Num :{{order.id}}</p>
+        <p class="mx-5">Total Price :{{order.totalOrderPrice}}</p>
+        </button>
+      </h2>
+      <div *ngIf="allOrders.length === 0" class="fs-2 mx-auto bg-main-light w-50 text-center">
+        <p> No Orders <span class="text-main"><i class="fa-solid fa-exclamation"></i></span></p>
+
+      </div>
+      <div [id]="'collapse'+ i" class="accordion-collapse collapse show" [class.show]="i === 0" aria-labelledby="'heading'+i" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="row border-bottom py-2 align-items-center" *ngFor="let item of order.cartItems">
+            <div class="col-md-2">
+              <img [src]="item.product.imageCover" [alt]="item.product.title" class="w-100">
+            </div>
+            <div class="col-md-8">
+              <p class="text-main fw-bolder">{{item.product.title}}</p>
+              <p class="">{{item.product.brand.name}}</p>
+              <p class="">{{item.product.category.name}}</p>
+
+            </div>
+            <div class="col-md-2">
+              <!-- <P> <span class="rating-color"><i class="fa-solid fa-star"></i></span> {{item.product.ratingsAverage}}</P> -->
+              <p class="text-main bolder">{{item.price}}EGP</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+<div class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-4">
+      <owl-carousel-o [options]="customOptions">
+
+        <ng-container *ngFor="let image of productDateils.images">
+          <ng-template carouselSlide>
+            <img [src]="image" [alt]="productDateils.title" >
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
+
+    </div>
+    <div class="col-md-8" >
+      <h4 class="mb-3 fw-bold">{{productDateils.title}}</h4>
+      <p class="text-muted">{{productDateils.description}}</p>
+      <p class="text-main fw-bold">{{productDateils.category.name}}</p>
+      <span class="text-muted"> Available Quantity :{{productDateils.quantity}}</span>
+      <div class="d-flex justify-content-between">
+        <p class="fw-bold">{{productDateils.price}} EGP</p>
+        <div>
+          <i class="fa-solid fa-star rating-color"></i>
+          <span class="fw-bold mx-1">{{productDateils.ratingsAverage}}</span>
+        </div>
+      </div>
+      <button (click)="addToCart(productDateils._id)" class="btn bg-main my-3  w-100 text-white fw-bold my-3">
+        <i  class="fa-solid fa-cart-plus"></i>
+         Add
+        </button>
+    </div>
+  </div>
+</div>

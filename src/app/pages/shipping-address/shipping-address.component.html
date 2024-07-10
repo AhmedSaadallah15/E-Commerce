@@ -1,0 +1,46 @@
+
+<div class="container py-5">
+  <div class="w-50 m-auto">
+    <form [formGroup]="shippingAddressForm" >
+      <h2 class="mb-2">shipping Address :</h2>
+      <p class="alert alert-danger text-center" *ngIf="apiErrorMassage">{{apiErrorMassage}}</p>
+      <div class="form-group mb-2">
+        <label class="mb-2" for="details">details :</label>
+        <input formControlName="details"   type="text" class="form-control" id="details">
+        <div *ngIf="shippingAddressForm.get('details')?.errors && shippingAddressForm.get('details')?.touched"  class="text-danger">
+          <p *ngIf="shippingAddressForm.get('details')?.getError('required')"  class="m-0">Requierd</p>
+        </div>
+      </div>
+      <div class="form-group mb-2">
+        <label class="mb-2" for="phone">phone :</label>
+        <input formControlName="phone"  type="tel" class="form-control" id="phone">
+        <div *ngIf="shippingAddressForm.get('phone')?.errors && shippingAddressForm.get('phone')?.touched"  class="text-danger">
+          <p *ngIf="shippingAddressForm.get('phone')?.getError('required')"  class="m-0">Requierd</p>
+          <p *ngIf="shippingAddressForm.get('phone')?.getError('pattern')" class="m-0">Password not valid</p>
+        </div>
+      </div>
+      <div class="form-group mb-2">
+        <label class="mb-2" for="city">city :</label>
+        <input formControlName="city"  type="text" class="form-control" id="city">
+        <div *ngIf="shippingAddressForm.get('city')?.errors && shippingAddressForm.get('city')?.touched"  class="text-danger">
+          <p *ngIf="shippingAddressForm.get('city')?.getError('required')"  class="m-0">Requierd</p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <button (click)="handelFormcash(shippingAddressForm)"   class="bg-main btn text-white w-50 mx-2 pt-2 mt-2" [disabled]="shippingAddressForm.invalid || isLoading">
+          <span *ngIf="!isLoading">Pay Cash <span><i class="fa-solid fa-money-bill-wave"></i></span></span>
+          <span *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></span>
+
+        </button>
+        <button  (click)="handelFormVisa(shippingAddressForm)" class="bg-main btn text-white w-50 mx-2 pt-2 mt-2" [disabled]="shippingAddressForm.invalid || isLoading">
+          <span *ngIf="!isLoading"> Pay Visa <span><i class="fa-brands fa-cc-visa"></i></span></span>
+          <span *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></span>
+
+        </button>
+      </div>
+
+
+    </form>
+  </div>
+</div>

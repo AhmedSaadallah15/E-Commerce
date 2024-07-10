@@ -1,0 +1,14 @@
+<div class="container py-4">
+  <div class="row gy-5">
+
+    <div class="col-md-3" *ngFor="let category of categorys" >
+      <a [routerLink]="['/category', category._id]">
+      <div class="category">
+        <img [src]="category.image" [alt]="category.name" class="w-100">
+        <h1 class="fs-4 text-center text-main fw-bold my-2">{{category.name}}</h1>
+      </div>
+    </a>
+    </div>
+
+  </div>
+</div>

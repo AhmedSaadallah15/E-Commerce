@@ -1,0 +1,15 @@
+<div class="container">
+  <h2 class="py-4">Show Popular Categorys</h2>
+  <owl-carousel-o [options]="customOptions">
+
+    <ng-container *ngFor="let categorys of categorys">
+      <ng-template carouselSlide >
+        <a [routerLink]="['/category', categorys._id]">
+        <img [src]="categorys.image" class="w-100 " height="200" [alt]="categorys.name" >
+        <h6 class="text-center">{{categorys.name}}</h6>
+        </a>
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+</div>
