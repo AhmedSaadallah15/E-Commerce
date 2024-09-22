@@ -42,7 +42,7 @@
          <li class="nav-item">
           <a class="nav-link" routerLink="register" routerLinkActive="activeLink" *ngIf="!isLoggedIn">Register</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn" >
           <a class="nav-link position-relative" routerLink="cart" >
             <i class="fa-solid fa-cart-shopping text-main fs-5"></i>
             <span class="position-absolute top-0 start-50  bg-main border border-light rounded-circle num">

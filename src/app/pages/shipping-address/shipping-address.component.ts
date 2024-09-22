@@ -41,6 +41,7 @@ handelFormcash (forms:FormGroup) {
           this.isLoading =false
           if(data.status ==   "success"){
             this._Router.navigate(['/allorders'])
+            this._CartService.numOfCartItems.next(0)
           }
         },
         error:(err)=>{
@@ -63,6 +64,7 @@ handelFormVisa(forms:FormGroup){
           this.isLoading =false
           this.url =data.session.url
         this.navigateToPay()
+        this._CartService.numOfCartItems.next(0)
         },
         error:(err)=>{
           this.isLoading = false ;

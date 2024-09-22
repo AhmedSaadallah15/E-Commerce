@@ -16,7 +16,7 @@
         <input formControlName="phone"  type="tel" class="form-control" id="phone">
         <div *ngIf="shippingAddressForm.get('phone')?.errors && shippingAddressForm.get('phone')?.touched"  class="text-danger">
           <p *ngIf="shippingAddressForm.get('phone')?.getError('required')"  class="m-0">Requierd</p>
-          <p *ngIf="shippingAddressForm.get('phone')?.getError('pattern')" class="m-0">Password not valid</p>
+          <p *ngIf="shippingAddressForm.get('phone')?.getError('pattern')" class="m-0">this is not egyption phone</p>
         </div>
       </div>
       <div class="form-group mb-2">

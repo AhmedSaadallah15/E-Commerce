@@ -7,8 +7,8 @@
     <label for="Name">Name</label>
     <div *ngIf="changeUserData.get('name')?.errors && changeUserData.get('name')?.touched"  class="text-danger">
       <p *ngIf="changeUserData.get('name')?.getError('required')"  class="m-0">Requierd</p>
-      <p *ngIf="changeUserData.get('name')?.getError('minLength')"  class="m-0">Requierd</p>
-      <p *ngIf="changeUserData.get('name')?.getError('maxLength')"  class="m-0">Requierd</p>
+      <p *ngIf="changeUserData.get('name')?.getError('minLength')"  class="m-0">minLength is 3</p>
+      <p *ngIf="changeUserData.get('name')?.getError('maxLength')"  class="m-0">maxLength is 15</p>
 
     </div>
   </div>
@@ -18,7 +18,7 @@
     <label for="email">Email</label>
     <div *ngIf="changeUserData.get('email')?.errors && changeUserData.get('email')?.touched"  class="text-danger">
       <p *ngIf="changeUserData.get('email')?.getError('required')"  class="m-0">Requierd</p>
-      <p *ngIf="changeUserData.get('email')?.getError('email')"  class="m-0">Requierd</p>
+      <p *ngIf="changeUserData.get('email')?.getError('email')"  class="m-0">Email is not valid</p>
 
     </div>
   </div>
@@ -28,7 +28,7 @@
     <label for="Phone">Phone</label>
     <div *ngIf="changeUserData.get('phone')?.errors && changeUserData.get('phone')?.touched"  class="text-danger">
       <p *ngIf="changeUserData.get('phone')?.getError('required')"  class="m-0">Requierd</p>
-      <p *ngIf="changeUserData.get('phone')?.getError('pattern')"  class="m-0">Requierd</p>
+      <p *ngIf="changeUserData.get('phone')?.getError('pattern')"  class="m-0">this is not egyption phone</p>
 
     </div>
   </div>

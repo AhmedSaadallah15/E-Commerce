@@ -2,12 +2,12 @@
   <div class="w-75 m-auto">
     <h2 class="py-3">Cart Details :</h2>
     <div >
-      <button class="btn btn-outline-danger mb-3 me-4" (click)="clearAllCart()">
+      <button class="btn btn-outline-danger mb-3 me-4" (click)="clearAllCart()" [disabled]="!allCart?.data?.products?.length ">
         <span><i class="fa-solid fa-trash-can"></i></span>
         Delete All Cart
       </button>
       <a [routerLink]="['/shippingAddress',allCart?.data?._id]">
-      <button class="btn btn-outline-success mb-3">
+      <button class="btn btn-outline-success mb-3" [disabled]="!allCart?.data?.products?.length ">
         <span><i class="fa-solid fa-money-check-dollar"></i></span>
         Pay Now
       </button>
@@ -33,13 +33,13 @@
     <h3 class="h5 pb-2">{{product.product.title}}</h3>
     <p class="text-main fw-bold">Price : {{product.price}}</p>
     <p class=" text-muted">{{product.product.category.name}}</p>
-    <button class="btn btn-outline-danger" (click)="removeCartItem(product.product._id)" >
+    <button class="btn btn-outline-danger" (click)="removeCartItem(product.product._id)"  >
       <span><i class="fa-solid fa-trash-can"></i></span>
       Remove
     </button>
   </div>
   <div class="col-md-2">
-    <button class="btn " (click)="updateCartItem(product.product._id,product.count +1)" ><i class="fa-solid fa-circle-plus fs-5 text-main"></i></button>
+    <button class="btn " (click)="updateCartItem(product.product._id,product.count +1)"  ><i class="fa-solid fa-circle-plus fs-5 text-main"></i></button>
     <span>{{product.count}}</span>
     <button class="btn" (click)="updateCartItem(product.product._id,product.count -1)"><i class="fa-solid fa-circle-minus fs-5 text-main"></i></button>
   </div>
